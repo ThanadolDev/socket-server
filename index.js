@@ -7,6 +7,7 @@ const io = new Server(server);
 var cookieParser = require("cookie-parser");
 app.use(cookieParser("yourSecretGoesHere"));
 app.get("/", (req, res) => {
+  res.setHeader('Permissions-Policy', 'interest-cohort=(), run-ad-auction=(), join-ad-interest-group=(), browsing-topics=()');
   res.sendFile(__dirname + "/index.html");
   date = Date.now().toString();
   res.cookie("ChatId", date);
